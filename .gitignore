@@ -1,0 +1,11 @@
+node_modules/
+dist/
+uploads/
+logs/
+.env.local
+coverage/
+*.log
+.DS_Store
+.env
+*.txt
+uploads-test/

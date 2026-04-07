@@ -1,0 +1,55 @@
+// src/core/domain/entities/Report.ts
+import { Entry } from './Entry';
+import { Attachment } from '../value-objects/Attachment';
+
+export type ReportStatus = 'draft' | 'published' | 'archived';
+export type ReportPriority = 'low' | 'medium' | 'high';
+
+export interface ReportMetadata {
+  version: number;
+  viewCount: number;
+  attachments: Attachment[];
+  extra: Record<string, unknown>;
+}
+
+export interface ReportProps {
+  id: string;
+  title: string;
+  description: string;
+  status: ReportStatus;
+  priority: ReportPriority;
+  ownerId: string;
+  entries: Entry[];
+  tags: string[];
+  createdAt: string;
+  updatedAt: string;
+  metadata: ReportMetadata;
+}
+
+export class Report {
+  public id: string;
+  public title: string;
+  public description: string;
+  public status: ReportStatus;
+  public priority: ReportPriority;
+  public ownerId: string;
+  public entries: Entry[];
+  public tags: string[];
+  public createdAt: string;
+  public updatedAt: string;
+  public metadata: ReportMetadata;
+
+  constructor(props: ReportProps) {
+    this.id = props.id;
+    this.title = props.title;
+    this.description = props.description;
+    this.status = props.status;
+    this.priority = props.priority;
+    this.ownerId = props.ownerId;
+    this.entries = props.entries;
+    this.tags = props.tags;
+    this.createdAt = props.createdAt;
+    this.updatedAt = props.updatedAt;
+    this.metadata = props.metadata;
+  }
+}
